@@ -1,8 +1,8 @@
-import express, { Request, Response } from 'express';
-import multer , { FileFilterCallback } from 'multer';
 import bodyParser from 'body-parser';
-import fs from 'fs-extra';  // For handling files
-import path from 'path';    // For file path
+import express, { Request, Response } from 'express';
+import fs from 'fs-extra'; // For handling files
+import multer, { FileFilterCallback } from 'multer';
+import path from 'path'; // For file path
 
 const app = express();
 const PORT = 3002;
@@ -55,8 +55,19 @@ app.post('/hotel', async (req: Request, res: Response) => {
 const imagesDirectory = path.join(__dirname, 'images');
 fs.ensureDirSync(imagesDirectory);
 
+// Set up multer to store files in the uploads directory
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, uploadDirectory);
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname); // Keep original file name
+  },
+});
 // Multer setup for image file upload
+
 const upload = multer({
+    storage:storage,
     limits: {
       fileSize: 1000000, // Limit to 1MB file size
     },
@@ -70,34 +81,38 @@ const upload = multer({
   });
 
 // POST /image endpoint to upload image with async/await
+
+
+const uploadDirectory = path.join(__dirname, 'uploads');
+
+// Ensure the upload directory exists
+if (!fs.existsSync(uploadDirectory)) {
+    fs.mkdirSync(uploadDirectory);
+}
+
+
+// const upload = multer({ storage });
+
+// POST /image endpoint to upload the image
 app.post('/image', upload.single('upload'), async (req: Request, res: Response): Promise<void> => {
     try {
-      // Ensure that the file is provided
-      if (!req.file) {
-        console.log(req.file);
-        res.status(400).send('No file uploaded');
-        return;
-      }
-  
-      // Define the output file path
-      const outputFilePath = path.join(imagesDirectory, req.file.originalname);
-  
-      // Move the uploaded file to the images directory
-      await fs.rename(req.file.path, outputFilePath); // Async file move operation
-  
-      // Return success message and the image URL
-      res.status(201).send({
-        message: 'Image uploaded successfully',
-        imageUrl: `/images/${req.file.originalname}`,
-      });
+      // console.log(uploadDirectory);
+        if (!req.file) {
+            res.status(400).send('No file uploaded');
+            return;
+        }
+
+        // Return success message and the image URL
+        res.status(201).send({
+            message: 'Image uploaded successfully',
+            imageUrl: `/uploads/${req.file.originalname}`,
+        });
     } catch (error: any) {
-      console.error(error);
-      res.status(400).send(error.message);
+        console.error(error);
+        res.status(400).send(error.message);
     }
-  });
-  
-  // Serve static files (images) from the 'images' directory
-  app.use('/images', express.static(imagesDirectory));
+});
+
 
   
 app.listen(PORT, () => {
