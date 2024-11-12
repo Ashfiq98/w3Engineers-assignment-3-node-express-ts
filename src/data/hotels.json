@@ -1,0 +1,121 @@
+[
+  {
+    "hotelId": "1234567890",
+    "slug": "grand-hotel",
+    "images": [
+      "http://localhost:3002/uploads/image-2.jpg",
+      "http://localhost:3002/uploads/image-3.jpg",
+      "http://localhost:3002/uploads/room-image-1.jpeg",
+      "http://localhost:3000/uploads/room-image-1.jpeg",
+      "http://localhost:3000/uploads/room-image-1.jpeg",
+      "http://localhost:3000/uploads/room-image-2.jpeg",
+      "http://localhost:3000/uploads/room-image-1.jpeg",
+      "http://localhost:3000/uploads/room-image-2.jpeg",
+      "http://localhost:3000/uploads/room-image-1.jpeg",
+      "http://localhost:3000/uploads/room-image-2.jpeg",
+      "http://localhost:3000/uploads/room-image-1.jpeg",
+      "http://localhost:3000/uploads/room-image-2.jpeg"
+    ],
+    "title": "Grand Hotel",
+    "description": "An urban hotel located in the heart of the city with easy access to popular attractions.",
+    "guestCount": 4,
+    "bedroomCount": 2,
+    "bathroomCount": 2,
+    "amenities": [
+      "Free Wi-Fi",
+      "Swimming Pool",
+      "Gym",
+      "Room Service"
+    ],
+    "host": {
+      "name": "John Doe",
+      "contact": "+1-555-1234"
+    },
+    "address": "123 Ocean Avenue, Miami, FL 33101",
+    "location": {
+      "latitude": 25.7617,
+      "longitude": -80.1918
+    },
+    "rooms": [
+      {
+        "hotelSlug": "grand-hotel",
+        "roomSlug": "suite-ocean-view",
+        "roomImage": "https://example.com/images/room1.jpg",
+        "roomTitle": "Suite with Ocean View",
+        "bedroomCount": 1
+      }
+    ]
+  },
+  {
+    "hotelId": "9876543210",
+    "slug": "cityscape-hotel",
+    "images": [],
+    "title": "Cityscape Hotel",
+    "description": "An urban hotel located in the heart of the city with easy access to popular attractions.",
+    "guestCount": 3,
+    "bedroomCount": 1,
+    "bathroomCount": 1,
+    "amenities": [
+      "Free Wi-Fi",
+      "24-Hour Front Desk",
+      "Pet Friendly",
+      "Breakfast Included"
+    ],
+    "host": {
+      "name": "Jane Smith",
+      "contact": "+1-555-5678"
+    },
+    "address": "456 Downtown Road, New York, NY 10001",
+    "location": {
+      "latitude": 40.7128,
+      "longitude": -74.006
+    },
+    "rooms": [
+      {
+        "hotelSlug": "cityscape-hotel",
+        "roomSlug": "standard-double",
+        "roomImage": "https://example.com/images/room3.jpg",
+        "roomTitle": "Standard Double Room",
+        "bedroomCount": 1,
+        "roomImages": [
+          "http://localhost:3000/uploads/room-image-1.jpeg",
+          "http://localhost:3000/uploads/room-image-2.jpeg"
+        ]
+      }
+    ]
+  },
+  {
+  "hotelId": "025a549a-642c-443d-99cd-aca674662be2",
+  "slug": "grand-hotel",
+    "images": [],
+    "title": "Grand Hotel",
+    "description": "An urban hotel located in the heart of the city with easy access to popular attractions.",
+    "guestCount": 4,
+    "bedroomCount": 2,
+    "bathroomCount": 2,
+    "amenities": [
+      "Free Wi-Fi",
+      "Swimming Pool",
+      "Gym",
+      "Room Service"
+    ],
+    "host": {
+      "name": "John Doe",
+      "contact": "+1-555-1234"
+    },
+    "address": "123 Ocean Avenue, Miami, FL 33101",
+    "location": {
+      "latitude": 25.7617,
+      "longitude": -80.1918
+    },
+    "rooms": [
+      {
+        "hotelSlug": "grand-hotel",
+        "roomTitle": "Suite with Ocean View",
+        "bedroomCount": 1,
+        "roomImage": "",
+        "roomImages": []
+      }
+    ]
+  }
+]
